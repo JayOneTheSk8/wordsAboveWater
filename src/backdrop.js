@@ -9,15 +9,17 @@ function drawWater() {
   context.fillStyle = '#009BFE';
   context.shadowColor = '#009BFE';
   context.shadowBlur = 13;
-  context.fill();
   context.fillRect(waterPosX, waterPosY, canvas.width, canvas.height);
 }
 
 function draw() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   drawWater();
+  if (waterPosY < 135) {
+    alert('GameOver')
+  }
   waterPosY--;
 }
 
-drawWater();
+draw();
 setInterval(draw, 200);
