@@ -6,8 +6,6 @@ body {
 }
 
 #backdrop {
-  background: lightgrey;
-  width: 550px;
-  height: 950px;
+  background: #71CBF4;
   border: 5px solid black;
 }
