@@ -5,7 +5,10 @@ const Plank = require('./plank.js');
 const canvas = document.getElementById('backdrop');
 const context = canvas.getContext('2d');
 
+const endAxis = 135;
+
 const startPlank = new Plank(context, 0, 820, 200);
+const submitPlank = new Plank(context, canvas.width - 80, endAxis - 1, 80);
 
 const a = new LetterBlock("a", 30, 20, context);
 const c = new LetterBlock("c", 130, 550, context);
@@ -27,13 +30,14 @@ function draw() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   water.draw();
   startPlank.draw();
+  submitPlank.draw();
   for (let i = 0; i < allBlocks.length; i++) {
     if (water.y < allBlocks[i].y) {
       allBlocks[i].cover()
     }
     allBlocks[i].draw();
   }
-  if (water.y < 135) {
+  if (water.y < endAxis) {
     alert('GameOver')
   }
   water.raiseWater();
@@ -41,6 +45,7 @@ function draw() {
 
 water.draw();
 startPlank.draw();
+submitPlank.draw();
 for (let i = 0; i < allBlocks.length; i++) {
   allBlocks[i].draw();
 }
