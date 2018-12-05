@@ -11,6 +11,7 @@ class LetterBlock {
   draw() {
     this.context.beginPath();
     this.context.fillStyle = this.color;
+    this.context.strokeStyle = 'black';
     this.context.lineWidth = '6';
     this.context.shadowBlur = 0;
     this.context.rect(this.x, this.y, 50, 50);
@@ -29,6 +30,7 @@ class LetterBlock {
       this.x + this.letterPos()[this.letter],
       this.y + 35
     );
+    this.context.closePath();
   }
 
   cover() {
