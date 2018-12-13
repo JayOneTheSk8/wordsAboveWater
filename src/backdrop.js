@@ -8,7 +8,7 @@ const canvas = document.getElementById('backdrop');
 const context = canvas.getContext('2d');
 const endAxis = 135;
 
-const guyPhelps = new GuyPhelps(context, 'Guy Phelps', 100, 770);
+const guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', 100, 770);
 const controller = new Controller(guyPhelps);
 
 const startPlank = new Plank(context, 0, 820, 200);
@@ -33,8 +33,9 @@ const allBlocks = [a, e, i, s, t, r, h, d, n, c, g, v];
 
 const draw = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
-  guyPhelps.gravity();
   controller.buttonPressed();
+  guyPhelps.gravity();
+  guyPhelps.wall();
   startPlank.collideCheck(guyPhelps);
   submitPlank.collideCheck(guyPhelps);
   water.draw();
@@ -55,16 +56,6 @@ const draw = () => {
   window.requestAnimationFrame(draw);
 }
 
-// water.draw();
-// startPlank.draw();
-// submitPlank.draw();
-// leapingPlank.draw();
-// guyPhelps.draw();
-// for (let i = 0; i < allBlocks.length; i++) {
-//   allBlocks[i].draw();
-// }
-//
-// setInterval(draw, 200);
 
 window.requestAnimationFrame(draw);
 window.addEventListener('keydown', controller.keyListener);

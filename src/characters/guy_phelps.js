@@ -1,8 +1,8 @@
 const Player = require('../player');
 
 class GuyPhelps extends Player {
-  constructor(context, name, x, y) {
-    super(context, name, x, y);
+  constructor(canvas, context, name, x, y) {
+    super(canvas, context, name, x, y);
     this.width = 30;
     this.height = 50;
   }

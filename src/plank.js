@@ -19,7 +19,7 @@ class Plank {
 
   collideCheck(player) {
     // debugger
-    if (this.x < player.x && player.x < this.x + this.width) {
+    if (this.x <= player.x && player.x < this.x + this.width) {
       if (player.y + player.height >= this.y) {
         player.jumping = false;
         player.y = this.y - player.height;

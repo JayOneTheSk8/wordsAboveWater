@@ -27,7 +27,7 @@ class Controller {
 
   buttonPressed() {
     if (this.up && this.player.jumping === false) {
-      this.player.yVelocity -= 20;
+      this.player.yVelocity -= 35;
       this.player.jumping = true;
     } else if (this.left) {
       this.player.xVelocity -= 0.5;
