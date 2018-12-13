@@ -2,13 +2,14 @@ const Water = require('./water');
 const LetterBlock = require('./letterblock');
 const Plank = require('./plank');
 const GuyPhelps = require('./characters/guy_phelps');
+const Controller = require('./controller');
 
-const guyPhelpsImg = document.getElementById('guyPhelps');
 const canvas = document.getElementById('backdrop');
 const context = canvas.getContext('2d');
 const endAxis = 135;
 
-// const guyPhelps = new GuyPhelps(context, 'Guy Phelps', 20, 820, guyPhelpsImg);
+const guyPhelps = new GuyPhelps(context, 'Guy Phelps', 100, 770);
+const controller = new Controller(guyPhelps);
 
 const startPlank = new Plank(context, 0, 820, 200);
 const submitPlank = new Plank(context, canvas.width - 80, endAxis - 1, 80);
@@ -30,13 +31,17 @@ const v = new LetterBlock('v', 280, 700, context);
 const water = new Water(context, canvas);
 const allBlocks = [a, e, i, s, t, r, h, d, n, c, g, v];
 
-function draw() {
+const draw = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
+  guyPhelps.gravity();
+  controller.buttonPressed();
+  startPlank.collideCheck(guyPhelps);
+  submitPlank.collideCheck(guyPhelps);
   water.draw();
   startPlank.draw();
   submitPlank.draw();
   leapingPlank.draw();
-  // guyPhelps.draw();
+  guyPhelps.draw();
   for (let i = 0; i < allBlocks.length; i++) {
     if (water.y < allBlocks[i].y) {
       allBlocks[i].cover();
@@ -47,15 +52,20 @@ function draw() {
     alert('GameOver');
   }
   water.raiseWater();
+  window.requestAnimationFrame(draw);
 }
 
-water.draw();
-startPlank.draw();
-submitPlank.draw();
-leapingPlank.draw();
+// water.draw();
+// startPlank.draw();
+// submitPlank.draw();
+// leapingPlank.draw();
 // guyPhelps.draw();
-for (let i = 0; i < allBlocks.length; i++) {
-  allBlocks[i].draw();
-}
+// for (let i = 0; i < allBlocks.length; i++) {
+//   allBlocks[i].draw();
+// }
+//
+// setInterval(draw, 200);
 
-setInterval(draw, 200);
+window.requestAnimationFrame(draw);
+window.addEventListener('keydown', controller.keyListener);
+window.addEventListener('keyup', controller.keyListener);

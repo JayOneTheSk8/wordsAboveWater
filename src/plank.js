@@ -16,6 +16,17 @@ class Plank {
     this.context.stroke();
     this.context.closePath();
   }
+
+  collideCheck(player) {
+    // debugger
+    if (this.x < player.x && player.x < this.x + this.width) {
+      if (player.y + player.height >= this.y) {
+        player.jumping = false;
+        player.y = this.y - player.height;
+        player.yVelocity = 0;
+      }
+    }
+  }
 }
 
 module.exports = Plank;

@@ -15,7 +15,8 @@ class Water {
   }
 
   raiseWater() {
-    this.y--;
+    const waterCurrent = this.y * 0.0001;
+    this.y -= waterCurrent;
   }
 }
 
