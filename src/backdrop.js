@@ -14,7 +14,7 @@ const controller = new Controller(guyPhelps);
 
 const startPlank = new Plank("left", guyPhelps, context, 0, 820, 200);
 const submitPlank = new Plank("right", guyPhelps, context, canvas.width - 80, endAxis - 1, 80);
-const leapingPlank = new Plank("right", guyPhelps, context, canvas.width - 80, endAxis + 100, 90);
+const leapingPlank = new Plank("right", guyPhelps, context, canvas.width - 110, endAxis + 100, 130);
 
 const a = new LetterBlock('a', 30, 20, context);
 const c = new LetterBlock('c', 130, 550, context);
@@ -26,7 +26,7 @@ const i = new LetterBlock('i', 200, 20, context);
 const n = new LetterBlock('n', 270, 440, context);
 const r = new LetterBlock('r', 35, 280, context);
 const s = new LetterBlock('s', 120, 150, context);
-const t = new LetterBlock('t', 275, 150, context);
+const t = new LetterBlock('t', 275, 170, context);
 const v = new LetterBlock('v', 280, 700, context);
 
 const water = new Water(context, canvas);
