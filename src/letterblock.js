@@ -44,11 +44,13 @@ class LetterBlock {
 
   uncover() {
     this.color = 'orange';
+    this.landed = false;
   }
 
   checkTimer(){
     if (this.timer === 50) {
       this.cover();
+      this.player.addLetter(this.letter, this.value);
     }
   }
 

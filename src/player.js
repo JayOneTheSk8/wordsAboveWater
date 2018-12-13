@@ -9,6 +9,7 @@ class Player {
     this.xVelocity = 0;
     this.yVelocity = 0;
     this.word = [];
+    this.values = [];
   }
 
   wall() {
@@ -21,6 +22,10 @@ class Player {
     }
   }
 
+  addLetter(letter, value){
+    this.word.push(letter);
+    this.value.push(value);
+  }
 }
 
 module.exports = Player;
