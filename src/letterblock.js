@@ -47,16 +47,8 @@ class LetterBlock {
     this.landed = false;
   }
 
-  swapColours() {
-    this.color = (this.color === 'red' ? 'orange' : 'red');
-  }
-
   checkTimer(){
-    if (['A', 'E', 'I', 'O', 'U'].includes(this.letter) && this.timer === 50) {
-      this.swapColours();
-      this.player.addLetter(this.letter, this.value);
-      this.timer = 0;
-    } else if (this.timer === 50 && this.color === 'orange') {
+    if (this.timer === 50 && this.color === 'orange') {
       this.cover();
       this.player.addLetter(this.letter, this.value);
       this.timer = 0;

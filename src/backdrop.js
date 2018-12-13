@@ -3,10 +3,13 @@ const LetterBlock = require('./letterblock');
 const Plank = require('./plank');
 const GuyPhelps = require('./characters/guy_phelps');
 const Controller = require('./controller');
+const WordList = require('./wordlist');
 
 const canvas = document.getElementById('backdrop');
 const context = canvas.getContext('2d');
 const endAxis = 135;
+
+const wordList = new WordList;
 
 const guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', 100, 770);
 const controller = new Controller(guyPhelps);
@@ -72,8 +75,10 @@ function submitScore(player) {
   for (let i = 0; i < player.values.length; i++) {
     score += player.values[i]
   }
-  player.score += score;
-  player.addWord(word);
+  if (wordList.words[word.toLowerCase()]) {
+    this.player.score += (score * word.length);
+    this.player.resetWords(word);
+  }
   return;
 }
 

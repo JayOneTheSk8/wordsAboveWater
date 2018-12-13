@@ -24,13 +24,15 @@ class Player {
     }
   }
 
-  addWord(word) {
-    this.wordList.push(word);
-  }
-
   addLetter(letter, value){
     this.word.push(letter);
     this.values.push(value);
+  }
+
+  resetWords(word) {
+    this.wordList.push(word);
+    this.word = [];
+    this.values = [];
   }
 }
 
