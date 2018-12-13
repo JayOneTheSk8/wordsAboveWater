@@ -51,6 +51,7 @@ class LetterBlock {
     if (this.timer === 50 && this.color === 'orange') {
       this.cover();
       this.player.addLetter(this.letter, this.value);
+      console.log(this.player.word.join(''));
       this.timer = 0;
     }
   }

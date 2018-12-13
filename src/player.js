@@ -29,7 +29,13 @@ class Player {
     this.values.push(value);
   }
 
+  clearValues() {
+    this.word = [];
+    this.values = [];
+  }
+
   resetWords(word) {
+    if (!word) { return null; }
     this.wordList.push(word);
     this.word = [];
     this.values = [];

@@ -5,9 +5,11 @@ const GuyPhelps = require('./characters/guy_phelps');
 const Controller = require('./controller');
 const WordList = require('./wordlist');
 
+const confirmedWords = document.querySelectorAll('#wordlist');
 const canvas = document.getElementById('backdrop');
 const context = canvas.getContext('2d');
 const endAxis = 135;
+
 
 const wordList = new WordList;
 
@@ -57,10 +59,8 @@ const draw = () => {
     allBlocks[i].draw();
   }
   if (water.y < endAxis || guyPhelps.y + guyPhelps.height >= water.y + 7) {
-    const replay = confirm('GameOver');
-    if (replay) {
-      location.reload();
-    }
+    alert("YOU LOSE!")
+    location.reload();
   }
   if (guyPhelps.x === 520 && guyPhelps.y === 84) {
     submitScore(guyPhelps);
@@ -78,12 +78,12 @@ function submitScore(player) {
   for (let i = 0; i < player.values.length; i++) {
     score += player.values[i]
   }
-  if (wordList.words[word.toLowerCase()]) {
+  if (wordList.words[word.toLowerCase()] && !player.wordList.includes(word)) {
     player.score += (score * word.length);
     player.resetWords(word);
+    console.log(player.score, player.wordList);
   }
-  console.log(player.score);
-  console.log(player.wordList);
+  player.clearValues();
   return;
 }
 
