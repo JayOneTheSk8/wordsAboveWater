@@ -19,9 +19,16 @@ class Plank {
     this.context.closePath();
   }
 
-  // sideCheck() {
-  //
-  // }
+  sideCollideCheck() {
+    if (this.x >= this.player.x && this.x - this.player.x === this.player.width) {
+      if (this.y >= this.player.y && this.y - this.player.y <= this.player.height) {
+        this.player.jumping = false;
+        this.player.xVelocity = 0;
+        this.player.yVelocity = 0;
+        this.player.x = this.x - this.player.width;
+      }
+    }
+  }
 
   collideCheck() {
     if (this.side === "left") {
