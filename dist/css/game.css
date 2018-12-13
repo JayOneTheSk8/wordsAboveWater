@@ -9,3 +9,42 @@ body {
   background: #71CBF4;
   border: 5px solid black;
 }
+
+#wordlist {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  right: 38%;
+  bottom: 700px;
+  font-size: 34px;
+  text-decoration: none;
+}
+
+.confirmed {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+#score {
+  position: absolute;
+  right: 12%;
+  top: 27%;
+  font-size: 41px;
+  font-weight: 700;
+}
+
+#score-total {
+  position: absolute;
+  top: 32%;
+  right: 13%;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.frag-title {
+  position: absolute;
+  right: 9%;
+  top: 9%;
+  font-size: 31px;
+  font-weight: 700;
+}

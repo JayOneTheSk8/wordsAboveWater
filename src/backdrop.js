@@ -6,8 +6,10 @@ const Controller = require('./controller');
 const WordList = require('./wordlist');
 
 
-let confirmedWords = document.querySelectorAll('#wordlist');
+let confirmedWords = document.getElementById('wordlist');
 let canvas = document.getElementById('backdrop');
+let score = document.getElementById('score-total');
+let fragment = document.getElementById('fragment');
 let context = canvas.getContext('2d');
 let endAxis = 135;
 
@@ -16,6 +18,7 @@ let wordList = new WordList;
 
 let guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', 100, 770);
 let controller = new Controller(guyPhelps);
+score.innerText = guyPhelps.score;
 
 let startPlank = new Plank("left", guyPhelps, context, 0, 820, 200);
 let submitPlank = new Plank("right", guyPhelps, context, canvas.width - 80, endAxis - 1, 80);
@@ -39,8 +42,10 @@ let allBlocks = [a, e, i, s, t, r, h, d, n, c, g, v];
 let allPlanks = [startPlank, submitPlank, leapingPlank];
 
 const initialise = () => {
-  confirmedWords = document.querySelectorAll('#wordlist');
+  confirmedWords = document.getElementById('wordlist');
   canvas = document.getElementById('backdrop');
+  score = document.getElementById('score-total');
+  fragment = document.getElementById('fragment');
   context = canvas.getContext('2d');
   endAxis = 135;
 
@@ -48,8 +53,8 @@ const initialise = () => {
   wordList = new WordList;
 
   guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', 100, 770);
-  // guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', canvas.width - 50, 0);
   controller = new Controller(guyPhelps);
+  score.innerText = guyPhelps.score;
 
   startPlank = new Plank("left", guyPhelps, context, 0, 820, 200);
   submitPlank = new Plank("right", guyPhelps, context, canvas.width - 80, endAxis - 1, 80);
@@ -105,20 +110,25 @@ const draw = () => {
       allBlocks[i].uncover();
     }
   }
+  fragment.innerText = guyPhelps.word.join('');
   water.raiseWater();
   window.requestAnimationFrame(draw);
 }
 
 function submitScore(player) {
   const word = player.word.join('');
-  let score = 0;
+  let newScore = 0;
   for (let i = 0; i < player.values.length; i++) {
-    score += player.values[i]
+    newScore += player.values[i]
   }
   if (wordList.words[word.toLowerCase()]) {
-    player.score += (score * word.length);
+    player.score += (newScore * word.length);
     player.resetWords(word);
-    console.log(player.score, player.wordList);
+    let nextWord = document.createElement('li');
+    nextWord.innerText = word;
+    confirmedWords.append(nextWord);
+
+    score.innerText = player.score;
     wordList.words[word.toLowerCase()] = false;
   }
   player.clearValues();
