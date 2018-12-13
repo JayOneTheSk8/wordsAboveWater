@@ -66,3 +66,19 @@ body {
   font-weight: 700;
   margin-top: 10px;
 }
+
+.how-to-play {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 94%;
+  width: 80%;
+  font-size: 25px;
+}
+
+.controls {
+  position: relative;
+  left: 31%;
+  bottom: 400px;
+  font-size: 20px;
+}

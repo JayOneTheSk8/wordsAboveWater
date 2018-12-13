@@ -11,13 +11,16 @@ class Controller {
     const keyState = (event.type === 'keydown' ? true : false);
     switch (event.keyCode) {
       case 32: // spacebar
-      case 38: // up
+      case 73:
+      // case 38: // up
         this.up = keyState;
         break;
-      case 37: // left
+      case 74:
+      // case 37: // left
         this.left = keyState;
         break;
-      case 39: //right
+      case 76:
+      // case 39: //right
         this.right = keyState;
         break;
       default:
