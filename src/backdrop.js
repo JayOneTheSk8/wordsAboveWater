@@ -49,7 +49,6 @@ const initialise = () => {
   context = canvas.getContext('2d');
   endAxis = 135;
 
-
   wordList = new WordList;
 
   guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', 100, 770);
