@@ -15,6 +15,7 @@ let endAxis = 135;
 let wordList = new WordList;
 
 let guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', 100, 770);
+// guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', canvas.width - 50, 0);
 let controller = new Controller(guyPhelps);
 
 let startPlank = new Plank("left", guyPhelps, context, 0, 820, 200);
@@ -48,6 +49,7 @@ const initialise = () => {
   wordList = new WordList;
 
   guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', 100, 770);
+  // guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', canvas.width - 50, 0);
   controller = new Controller(guyPhelps);
 
   startPlank = new Plank("left", guyPhelps, context, 0, 820, 200);
@@ -65,7 +67,7 @@ const initialise = () => {
   r = new LetterBlock(guyPhelps, 'r', 35, 280, context);
   s = new LetterBlock(guyPhelps, 's', 120, 150, context);
   t = new LetterBlock(guyPhelps, 't', 275, 170, context);
-  v = new LetterBlock(guyPhelps, 'v', 280, 700, context);
+  v = new LetterBlock(guyPhelcanvas.width - 30,ps, 'v', 280, 700, context);
 
   water = new Water(context, canvas);
   allBlocks = [a, e, i, s, t, r, h, d, n, c, g, v];
