@@ -1,5 +1,7 @@
 class Plank {
-  constructor(context, x, y, width) {
+  constructor(direction, player, context, x, y, width) {
+    this.direction = direction;
+    this.player = player;
     this.context = context;
     this.x = x;
     this.y = y;
@@ -17,16 +19,19 @@ class Plank {
     this.context.closePath();
   }
 
-  collideCheck(player) {
-    // debugger
-    if (this.x <= player.x && player.x < this.x + this.width) {
-      if (player.y + player.height >= this.y) {
-        player.jumping = false;
-        player.y = this.y - player.height;
-        player.yVelocity = 0;
+  collideCheck() {
+    if (this.x <= this.player.x && this.player.x < this.x + this.width) {
+      if (this.player.y + this.player.height >= this.y) {
+        this.player.jumping = false;
+        this.player.y = this.y - this.player.height;
+        this.player.yVelocity = 0;
       }
     }
   }
+
+  // rightCollideCheck() {
+  //
+  // }
 }
 
 module.exports = Plank;

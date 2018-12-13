@@ -14,9 +14,9 @@ class Player {
     if (this.x <= 0) {
       this.xVelocity = 0;
       this.x = 0;
-    } else if (this.x >= this.canvas.width) {
+    } else if (this.x + this.width >= this.canvas.width) {
       this.xVelocity = 0;
-      this.x = this.canvas.width;
+      this.x = this.canvas.width - this.width;
     }
   }
 

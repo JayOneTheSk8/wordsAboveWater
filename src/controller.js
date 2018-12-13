@@ -30,9 +30,9 @@ class Controller {
       this.player.yVelocity -= 35;
       this.player.jumping = true;
     } else if (this.left) {
-      this.player.xVelocity -= 0.5;
+      this.player.xVelocity -= 0.6;
     } else if (this.right) {
-      this.player.xVelocity += 0.5;
+      this.player.xVelocity += 0.6;
     }
   }
 }

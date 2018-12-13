@@ -11,9 +11,9 @@ const endAxis = 135;
 const guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', 100, 770);
 const controller = new Controller(guyPhelps);
 
-const startPlank = new Plank(context, 0, 820, 200);
-const submitPlank = new Plank(context, canvas.width - 80, endAxis - 1, 80);
-const leapingPlank = new Plank(context, canvas.width - 80, endAxis + 100, 80);
+const startPlank = new Plank("left", guyPhelps, context, 0, 820, 200);
+const submitPlank = new Plank("right", guyPhelps, context, canvas.width - 80, endAxis - 1, 80);
+const leapingPlank = new Plank("right", guyPhelps, context, canvas.width - 80, endAxis + 100, 90);
 
 const a = new LetterBlock('a', 30, 20, context);
 const c = new LetterBlock('c', 130, 550, context);
@@ -36,8 +36,9 @@ const draw = () => {
   controller.buttonPressed();
   guyPhelps.gravity();
   guyPhelps.wall();
-  startPlank.collideCheck(guyPhelps);
-  submitPlank.collideCheck(guyPhelps);
+  startPlank.collideCheck();
+  submitPlank.collideCheck();
+  leapingPlank.collideCheck();
   water.draw();
   startPlank.draw();
   submitPlank.draw();
