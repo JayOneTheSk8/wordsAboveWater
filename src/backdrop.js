@@ -50,6 +50,7 @@ const draw = () => {
       allBlocks[i].cover();
     }
     allBlocks[i].topCollisionCheck();
+    allBlocks[i].checkTimer();
     allBlocks[i].draw();
   }
   if (water.y < endAxis) {

@@ -9,6 +9,8 @@ class LetterBlock {
     this.value = this.values()[letter.toUpperCase()];
     this.width = 50;
     this.height = 50;
+    this.timer = 1;
+    this.landed = false;
   }
 
   draw() {
@@ -40,6 +42,16 @@ class LetterBlock {
     this.color = 'grey';
   }
 
+  uncover() {
+    this.color = 'orange';
+  }
+
+  checkTimer(){
+    if (this.timer === 50) {
+      this.cover();
+    }
+  }
+
   topCollisionCheck() {
     if (this.player.x + this.player.width >= this.x && this.player.x <= this.x + this.width) {
       if (this.player.y < this.y) {
@@ -47,6 +59,10 @@ class LetterBlock {
           this.player.jumping = false;
           this.player.y = this.y - this.player.height;
           this.player.yVelocity = 0;
+          this.timer++;
+          if (this.landed === false) {
+            this.landed = true;
+          };
         }
       }
     }

@@ -8,6 +8,7 @@ class Player {
     this.jumping = false
     this.xVelocity = 0;
     this.yVelocity = 0;
+    this.word = [];
   }
 
   wall() {
