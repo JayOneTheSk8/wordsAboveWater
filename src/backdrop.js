@@ -8,8 +8,7 @@ const canvas = document.getElementById('backdrop');
 const context = canvas.getContext('2d');
 const endAxis = 135;
 
-// const guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', 100, 770);
-const guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', 525, 0); //TEST
+const guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', 100, 770);
 const controller = new Controller(guyPhelps);
 
 const startPlank = new Plank("left", guyPhelps, context, 0, 820, 200);
