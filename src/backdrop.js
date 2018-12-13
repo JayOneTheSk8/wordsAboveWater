@@ -96,6 +96,7 @@ const draw = () => {
   if (water.y < endAxis || guyPhelps.y + guyPhelps.height >= water.y + 7) {
     alert("YOU LOSE!")
     initialise();
+    location.reload();
   }
   if (guyPhelps.x === 520 && guyPhelps.y === 84) {
     submitScore(guyPhelps);
