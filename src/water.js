@@ -15,7 +15,7 @@ class Water {
   }
 
   raiseWater() {
-    const waterCurrent = this.y * 0.0001;
+    const waterCurrent = (this.y >= this.canvas.height / 2 ? (900 * 0.0001) :  (1200 * 0.0001))
     this.y -= waterCurrent;
   }
 }
