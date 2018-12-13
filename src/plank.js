@@ -19,6 +19,10 @@ class Plank {
     this.context.closePath();
   }
 
+  // sideCheck() {
+  //
+  // }
+
   collideCheck() {
     if (this.side === "left") {
       if (this.x <= this.player.x && this.player.x < this.x + this.width) {
@@ -30,7 +34,7 @@ class Plank {
       }
     } else {
       if (this.player.x + this.player.width >= this.x) {
-        if (this.player.y + this.player.height >= this.y) {
+        if (this.player.y < this.y && this.y - this.player.y <= this.player.height) {
           this.player.jumping = false;
           this.player.y = this.y - this.player.height;
           this.player.yVelocity = 0;

@@ -8,7 +8,8 @@ const canvas = document.getElementById('backdrop');
 const context = canvas.getContext('2d');
 const endAxis = 135;
 
-const guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', 100, 770);
+// const guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', 100, 770);
+const guyPhelps = new GuyPhelps(canvas, context, 'Guy Phelps', 525, 0); //TEST
 const controller = new Controller(guyPhelps);
 
 const startPlank = new Plank("left", guyPhelps, context, 0, 820, 200);
@@ -30,19 +31,20 @@ const v = new LetterBlock('v', 280, 700, context);
 
 const water = new Water(context, canvas);
 const allBlocks = [a, e, i, s, t, r, h, d, n, c, g, v];
+const allPlanks = [startPlank, submitPlank, leapingPlank];
 
 const draw = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
   controller.buttonPressed();
   guyPhelps.gravity();
   guyPhelps.wall();
-  startPlank.collideCheck();
-  submitPlank.collideCheck();
-  leapingPlank.collideCheck();
+  for (let i = 0; i < allPlanks.length; i++) {
+    allPlanks[i].collideCheck();
+  }
   water.draw();
-  startPlank.draw();
-  submitPlank.draw();
-  leapingPlank.draw();
+  for (let i = 0; i < allPlanks.length; i++) {
+    allPlanks[i].draw();
+  }
   guyPhelps.draw();
   for (let i = 0; i < allBlocks.length; i++) {
     if (water.y < allBlocks[i].y) {

@@ -17,6 +17,10 @@ class GuyPhelps extends Player {
     // this.context.drawImage(this.img, this.startX, this.startY);
   }
 
+  // bottom() {
+  //   // this.height
+  // }
+
   gravity() {
     this.yVelocity += 1.5;
     this.x += this.xVelocity;
