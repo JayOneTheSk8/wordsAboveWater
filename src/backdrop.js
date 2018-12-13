@@ -49,6 +49,7 @@ const draw = () => {
     if (water.y < allBlocks[i].y) {
       allBlocks[i].cover();
     }
+    allBlocks[i].topCollisionCheck();
     allBlocks[i].draw();
   }
   if (water.y < endAxis) {

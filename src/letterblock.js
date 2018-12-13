@@ -41,7 +41,15 @@ class LetterBlock {
   }
 
   topCollisionCheck() {
-
+    if (this.player.x + this.player.width >= this.x && this.player.x <= this.x + this.width) {
+      if (this.player.y < this.y) {
+        if (this.y - this.player.y <= this.player.height) {
+          this.player.jumping = false;
+          this.player.y = this.y - this.player.height;
+          this.player.yVelocity = 0;
+        }
+      }
+    }
   }
 
   letterPos() {
