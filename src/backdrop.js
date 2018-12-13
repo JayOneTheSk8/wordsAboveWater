@@ -39,7 +39,6 @@ const draw = () => {
   guyPhelps.gravity();
   guyPhelps.wall();
   for (let i = 0; i < allPlanks.length; i++) {
-    allPlanks[i].sideCollideCheck();
     allPlanks[i].collideCheck();
   }
   water.draw();
