@@ -1,7 +1,7 @@
 # Words Above Water
 
 ## How to Play:
-Welcome to Words Above Water where spelling couldn't be much harder! Your mission, should you choose to accept it, is to spell all the words within the given set of letters while avoiding the impending tide from coming in and covering the letters available to you. Spelling words using all of the letters available to you (if above 3) garner you extra points and even add time before the tide comes in.
+Welcome to Words Above Water where spelling couldn't be much harder! Your mission, should you choose to accept it, is to spell all the words within the given set of letters while avoiding the impending tide from coming in and covering the letters available to you. Any word spelled (over 3 characters) garners you points based on the letters used and the length of the word.
 The game is over if you fall into the water, only have vowels available to you, or spell all of the words within your given set of letters (excluding the ones covered up by the tide).
 
 ## How to Spell a Word:

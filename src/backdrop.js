@@ -78,10 +78,11 @@ function submitScore(player) {
   for (let i = 0; i < player.values.length; i++) {
     score += player.values[i]
   }
-  if (wordList.words[word.toLowerCase()] && !player.wordList.includes(word)) {
+  if (wordList.words[word.toLowerCase()]) {
     player.score += (score * word.length);
     player.resetWords(word);
     console.log(player.score, player.wordList);
+    wordList.words[word.toLowerCase()] = false;
   }
   player.clearValues();
   return;
