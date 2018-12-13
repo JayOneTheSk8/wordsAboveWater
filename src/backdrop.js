@@ -57,7 +57,10 @@ const draw = () => {
     allBlocks[i].draw();
   }
   if (water.y < endAxis || guyPhelps.y + guyPhelps.height >= water.y + 7) {
-    const end = confirm('GameOver');
+    const replay = confirm('GameOver');
+    if (replay) {
+      location.reload();
+    }
   }
   if (guyPhelps.x === 520 && guyPhelps.y === 84) {
     submitScore(guyPhelps);
@@ -76,9 +79,11 @@ function submitScore(player) {
     score += player.values[i]
   }
   if (wordList.words[word.toLowerCase()]) {
-    this.player.score += (score * word.length);
-    this.player.resetWords(word);
+    player.score += (score * word.length);
+    player.resetWords(word);
   }
+  console.log(player.score);
+  console.log(player.wordList);
   return;
 }
 
