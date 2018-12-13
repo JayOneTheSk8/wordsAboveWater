@@ -56,8 +56,8 @@ const draw = () => {
     allBlocks[i].checkTimer();
     allBlocks[i].draw();
   }
-  if (water.y < endAxis) {
-    alert('GameOver');
+  if (water.y < endAxis || guyPhelps.y + guyPhelps.height >= water.y + 7) {
+    const end = confirm('GameOver');
   }
   if (guyPhelps.x === 520 && guyPhelps.y === 84) {
     submitScore(guyPhelps);
