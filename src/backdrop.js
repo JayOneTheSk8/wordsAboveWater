@@ -56,8 +56,25 @@ const draw = () => {
   if (water.y < endAxis) {
     alert('GameOver');
   }
+  if (guyPhelps.x === 520 && guyPhelps.y === 84) {
+    submitScore(guyPhelps);
+    for (let i = 0; i < allBlocks.length; i++) {
+      allBlocks[i].uncover();
+    }
+  }
   water.raiseWater();
   window.requestAnimationFrame(draw);
+}
+
+function submitScore(player) {
+  const word = player.word.join('');
+  let score = 0;
+  for (let i = 0; i < player.values.length; i++) {
+    score += player.values[i]
+  }
+  player.score += score;
+  player.addWord(word);
+  return;
 }
 
 

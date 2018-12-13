@@ -10,6 +10,8 @@ class Player {
     this.yVelocity = 0;
     this.word = [];
     this.values = [];
+    this.wordList = [];
+    this.score = 0;
   }
 
   wall() {
@@ -22,9 +24,13 @@ class Player {
     }
   }
 
+  addWord(word) {
+    this.wordList.push(word);
+  }
+
   addLetter(letter, value){
     this.word.push(letter);
-    this.value.push(value);
+    this.values.push(value);
   }
 }
 
