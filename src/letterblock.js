@@ -1,11 +1,14 @@
 class LetterBlock {
-  constructor(letter, x, y, context) {
+  constructor(player, letter, x, y, context) {
+    this.player = player;
     this.color = 'orange';
     this.context = context;
     this.x = x;
     this.y = y;
     this.letter = letter.toUpperCase();
     this.value = this.values()[letter.toUpperCase()];
+    this.width = 50;
+    this.height = 50;
   }
 
   draw() {
@@ -14,7 +17,7 @@ class LetterBlock {
     this.context.strokeStyle = 'black';
     this.context.lineWidth = '6';
     this.context.shadowBlur = 0;
-    this.context.rect(this.x, this.y, 50, 50);
+    this.context.rect(this.x, this.y, this.width, this.height);
     this.context.stroke();
     this.context.fill();
     this.context.closePath();
@@ -35,6 +38,10 @@ class LetterBlock {
 
   cover() {
     this.color = 'grey';
+  }
+
+  topCollisionCheck() {
+
   }
 
   letterPos() {
