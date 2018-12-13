@@ -4,17 +4,23 @@
     <meta charset="utf-8">
     <title>Words Above Water</title>
     <link rel="stylesheet" href="dist/css/game.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Charmonman:400,700" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
   </head>
   <body>
     <h1 className="title">WORDS ABOVE WATER</h1>
     <canvas id="backdrop" width="550px" height="910px"></canvas>
-    <p class="frag-title">Current Fragment:</p>
-    <p id="fragment"></p>
+    <div class="frag-area">
+      <p class="frag-title">Current Fragment:</p>
+      <p id="fragment"> </p>
+    </div>
     <ul id="wordlist">
-      <li class="confirmed">CONFIRMED WORDS:</li>
+      <h3 class="confirmed">CONFIRMED WORDS:</h3>
     </ul>
-    <p id="score">Score</p>
-    <p id="score-total"></p>
+    <div class="score-area">
+      <p id="score">Score</p>
+      <p id="score-total"></p>
+    </div>
   </body>
   <script type="text/javascript" src="dist/bundle/bundle.js"></script>
 </html>
