@@ -18,6 +18,7 @@ body {
   right: 492px;
   bottom: 746px;
   font-size: 34px;
+  list-style: none;
 }
 
 .confirmed {
